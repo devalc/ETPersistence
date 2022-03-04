@@ -21,25 +21,25 @@ function initMap() {
 
   // stamen 
 
-  var StamenTerrain = new ol.layer.Tile({
-    source: new ol.source.XYZ({
-      url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
-      attributions: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-    }),
-    title: 'StamenTerrain'
-  })
+  // var StamenTerrain = new ol.layer.Tile({
+  //   source: new ol.source.XYZ({
+  //     url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
+  //     attributions: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+  //   }),
+  //   title: 'StamenTerrain'
+  // })
 
 
 
   // vector layer- Water Districts
-  // var dist = new ol.layer.Vector({
-  //   title: 'Water Districts',
-  //   source: new ol.source.Vector({
-  //     format: new ol.format.GeoJSON(),
-  //     url: './data/Water_Districts.geojson'
-  //   })
+  var dist = new ol.layer.Vector({
+    title: 'Fields Layer read strraight from github',
+    source: new ol.source.Vector({
+      format: new ol.format.GeoJSON(),
+      url: './data/fields_all_stats_including_waterdist_and_irri_org.geojson'
+    })
 
-  // })
+  })
 
 
   // Field boundaruy layer with all the calculated statistics
@@ -101,12 +101,12 @@ function initMap() {
 
   var layersTodisplay = new ol.layer.Group({
     title: 'Overlays',
-    layers: [persist_vec, persist_ras, diff_ras, diff_ras_5perc]
+    layers: [dist,persist_vec, persist_ras, diff_ras, diff_ras_5perc]
   })
 
   var baselayersTodisplay = new ol.layer.Group({
     title: 'Base layers',
-    layers: [osmbasemaplyr, StamenTerrain]
+    layers: [osmbasemaplyr]
   })
 
   // add everything to base map layer
