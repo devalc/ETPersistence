@@ -36,7 +36,7 @@ function initMap() {
     title: 'Fields Layer read strraight from github',
     source: new ol.source.Vector({
       format: new ol.format.GeoJSON(),
-      url: './data/fields_all_stats_including_waterdist_and_irri_org.geojson'
+      url: './data/Water_Districts.geojson'
     })
 
   })
@@ -68,6 +68,14 @@ function initMap() {
       serverType: 'geoserver'
     })
   })
+
+  // var persist_ras_github = new ol.layer.Tile({
+  //   title: 'Persistence Layer straight from github',
+  //   source: new ol.source.TileWMS({
+
+  //     url: 'https://github.com/devalc/ETPersistence/blob/77390f71fbd9790b0d943f719d4b0404d7536515/data/COG/persistence_new_RAT_lyr_magicValley_1986_2020_cog.tif'
+  //   })
+  // })
 
   // difference greater than 5% of the field average: raster
 
