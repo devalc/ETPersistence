@@ -1,17 +1,44 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/css/ol.css" type="text/css">
-    <link rel="stylesheet" href="./styles.css">
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/build/ol.js"></script>
-    <title>Evapotranspiration Persistence map for Magic Valley</title>
-  </head>
-  <body>
-    <h2>Evapotranspiration Persistence</h2>
-    <div id="map" class="map"></div>
-    <script src="main.js">
-      
-    </script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/css/ol.css"
+    type="text/css">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./resources/layerswitcher/ol-layerswitcher.css">
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/build/ol.js"></script>
+  <title>Evapotranspiration Persistence map for Magic Valley</title>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <span class="navbar-brand" >
+        <div>
+          <img src="resources/images/map.png" style="position:absolute; padding:0px;" height="35">
+        </div>
+        <div style="position:absolute; margin-left: 40px; padding-bottom: 20px;">
+          <h2>Evapotranspiration Persistence</h2>
+        </div>
+        <div>
+          <a href="https://www.uidaho.edu/">
+            <img src="resources/images/UI.jpg" style="position:fixed;right: 10px;top: 5px;padding-bottom:10px;"
+              height="50">
+          </a>
+        </div>
+    </div>
+    </span>
+  </div>
+  <div id="map" class="map"></div>
+  </div>
+
+
+
+  <script src="main.js"></script>
+  <script src="./resources/layerswitcher/ol-layerswitcher.js"></script>
+</body>
+
 </html>
