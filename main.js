@@ -32,14 +32,14 @@ function initMap() {
 
 
   // vector layer- Water Districts
-  var dist = new ol.layer.Vector({
-    title: 'Fields Layer read strraight from github',
-    source: new ol.source.Vector({
-      format: new ol.format.GeoJSON(),
-      url: './data/Water_Districts.geojson'
-    })
+  // var dist = new ol.layer.Vector({
+  //   title: 'Fields Layer read strraight from github',
+  //   source: new ol.source.Vector({
+  //     format: new ol.format.GeoJSON(),
+  //     url: './data/Water_Districts.geojson'
+  //   })
 
-  })
+  // })
 
 
   // Field boundaruy layer with all the calculated statistics
@@ -51,7 +51,9 @@ function initMap() {
     source: new ol.source.TileWMS({
 
       url: 'http://localhost:8080/geoserver/magicvalley/wms',
-      params: { 'layers': 'magicvalley:fields_all_stats_including_waterdist_and_irri_org' },
+      params: {
+        'layers': 'magicvalley:fields_all_stats_including_waterdist_and_irri_org'
+      },
       serverType: 'geoserver'
     })
   })
@@ -64,7 +66,9 @@ function initMap() {
     source: new ol.source.TileWMS({
 
       url: 'http://localhost:8080/geoserver/magicvalley/wms',
-      params: { 'layers': 'magicvalley:persistence_new_RAT_lyr_magicValley_1986_2020_cog' },
+      params: {
+        'layers': 'magicvalley:persistence_new_RAT_lyr_magicValley_1986_2020_cog'
+      },
       serverType: 'geoserver'
     })
   })
@@ -77,7 +81,7 @@ function initMap() {
   //   })
   // })
 
-  // difference greater than 5% of the field average: raster
+  // difference from the field average: raster
 
   var diff_ras = new ol.layer.Tile({
     title: 'Difference from Field Average',
@@ -85,7 +89,9 @@ function initMap() {
     source: new ol.source.TileWMS({
 
       url: 'http://localhost:8080/geoserver/magicvalley/wms',
-      params: { 'layers': 'magicvalley:difference_from_field_average' },
+      params: {
+        'layers': 'magicvalley:difference_new_RAT_lyr_magicValley_1986_2020_cog'
+      },
       serverType: 'geoserver',
 
     })
@@ -98,7 +104,9 @@ function initMap() {
     source: new ol.source.TileWMS({
 
       url: 'http://localhost:8080/geoserver/magicvalley/wms',
-      params: { 'layers': 'magicvalley:difference_from_field_avg_5perc' },
+      params: {
+        'layers': 'magicvalley:difference_from_field_avg_5perc'
+      },
       serverType: 'geoserver'
     })
   })
@@ -109,7 +117,7 @@ function initMap() {
 
   var layersTodisplay = new ol.layer.Group({
     title: 'Overlays',
-    layers: [dist,persist_vec, persist_ras, diff_ras, diff_ras_5perc]
+    layers: [dist, persist_vec, persist_ras, diff_ras, diff_ras_5perc]
   })
 
   var baselayersTodisplay = new ol.layer.Group({
