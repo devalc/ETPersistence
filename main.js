@@ -117,7 +117,7 @@ function initMap() {
 
   var layersTodisplay = new ol.layer.Group({
     title: 'Overlays',
-    layers: [dist, persist_vec, persist_ras, diff_ras, diff_ras_5perc]
+    layers: [persist_vec, persist_ras, diff_ras, diff_ras_5perc]
   })
 
   var baselayersTodisplay = new ol.layer.Group({
