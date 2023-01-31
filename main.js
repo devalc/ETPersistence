@@ -41,31 +41,52 @@ function initMap() {
 
   // })
 
+  // field boundary layer styling
 
-  // Field boundaruy layer with all the calculated statistics
+  // const fillStyle= new ol.style.Fill({
+  //   color: [84,118,225,1]
 
-  var persist_vec = new ol.layer.Tile({
+  // })
 
-    title: 'Field Boundries',
+  // const strokeStyle= new ol.style.Stroke({
+  //   color: [46,45,45,1],
+  //   width: 10.2
 
-    source: new ol.source.TileWMS({
+  // })
+  
 
-      url: 'http://localhost:8080/geoserver/magicvalley/wms',
-      params: {
-        'layers': 'magicvalley:fields_all_stats_including_waterdist_and_irri_org'
-      },
-      serverType: 'geoserver'
-    })
-  })
+  // Field boundary layer with all the calculated statistics
+
+  // var persist_vec = new ol.layer.Tile({
+
+  //   source: new ol.source.TileWMS({
+
+  //     url: 'http://localhost:8080/geoserver/magicvalley/wms',
+  //     params: {
+  //       'layers': 'magicvalley:fields_all_stats_including_waterdist_and_irri_org'
+  //     },
+  //     serverType: 'geoserver'
+  //   }),
+
+  //   title: 'fields_all_stats_including_waterdist_and_irri_org',
+    
+  //   style: new ol.style.Style({
+  //     fill: fillStyle,
+  //     stroke: strokeStyle
+  //     // image: circleStyle
+  //   })
+
+    
+  // })
 
 
   // ET persistence raster layer
 
   var persist_ras = new ol.layer.Tile({
-    title: 'Persistence Layer',
+    title: 'persistence_new_RAT_lyr_magicValley_1986_2020_cog',
     source: new ol.source.TileWMS({
 
-      url: 'http://localhost:8080/geoserver/magicvalley/wms',
+      url: 'http://dev.wepp.cloud:1337/geoserver/magicvalley/wms',
       params: {
         'layers': 'magicvalley:persistence_new_RAT_lyr_magicValley_1986_2020_cog'
       },
@@ -84,11 +105,11 @@ function initMap() {
   // difference from the field average: raster
 
   var diff_ras = new ol.layer.Tile({
-    title: 'Difference from Field Average',
+    title: 'difference_new_RAT_lyr_magicValley_1986_2020_cog',
 
     source: new ol.source.TileWMS({
 
-      url: 'http://localhost:8080/geoserver/magicvalley/wms',
+      url: 'http://dev.wepp.cloud:1337/geoserver/magicvalley/wms',
       params: {
         'layers': 'magicvalley:difference_new_RAT_lyr_magicValley_1986_2020_cog'
       },
@@ -100,10 +121,10 @@ function initMap() {
   // difference more than 5% of the field average: raster 
 
   var diff_ras_5perc = new ol.layer.Tile({
-    title: 'Difference more than at lease 5% of field average',
+    title: 'difference_from_field_avg_5perc',
     source: new ol.source.TileWMS({
 
-      url: 'http://localhost:8080/geoserver/magicvalley/wms',
+      url: 'http://dev.wepp.cloud:1337/geoserver/magicvalley/wms',
       params: {
         'layers': 'magicvalley:difference_from_field_avg_5perc'
       },
@@ -117,7 +138,8 @@ function initMap() {
 
   var layersTodisplay = new ol.layer.Group({
     title: 'Overlays',
-    layers: [persist_vec, persist_ras, diff_ras, diff_ras_5perc]
+    layers: [persist_ras, diff_ras, diff_ras_5perc]
+    // layers: [persist_vec, persist_ras, diff_ras, diff_ras_5perc]
   })
 
   var baselayersTodisplay = new ol.layer.Group({
@@ -139,6 +161,44 @@ function initMap() {
   });
 
   // add Layer controls
-  map.addControl(layercontrols)
+  map.addControl(layercontrols);
+
+  // function genLegend() {
+  //   var zero_layers = ol.overlays.getLayers().get('length');
+  //   var head = document.createElement("h4");
+  //   var txt = document.createTextNode("Legend")
+  //   head.appendChild(txt);
+
+  //   var elm = document.getElementById("legend");
+  //   elm.appendChild(head);
+
+  //   var ar = [];
+  //   var i;
+  //   for (i = 0; i < zero_layers; i++) {
+  //     ar.push("http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + overlays.getLayers().item(i).get('title'));
+  //   }
+
+  //   for (i = 0; i < zero_layers; i++) {
+  //     var head = document.createElement("p");
+
+  //     var txt = document.createTextNode(overlays.getLayers(i).get('title'));
+
+  //     head.appendChild(txt);
+
+  //     var elm = document.getElementById("legend");
+  //     elm.appendChild(head);
+  //     var img = new Image();
+  //     img.src = ar[i];
+
+  //     var src = document.getElementById("legend");
+
+  //     src.appendChild(img);
+
+
+  //   }
+
+  // }
+
+  // genLegend();
 
 }
