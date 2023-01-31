@@ -1,7 +1,7 @@
 <PAMDataset>
   <PAMRasterBand band="1">
     <CategoryNames>
-      <Category>0</Category>
+      <Category></Category>
       <Category>1</Category>
     </CategoryNames>
     <Histograms>
@@ -11,15 +11,15 @@
         <BucketCount>3</BucketCount>
         <IncludeOutOfRange>0</IncludeOutOfRange>
         <Approximate>0</Approximate>
-        <HistCounts>814746|2752723|828652</HistCounts>
+        <HistCounts>814746|0|828652</HistCounts>
       </HistItem>
     </Histograms>
     <Metadata>
       <MDI key="STATISTICS_MAXIMUM">1</MDI>
-      <MDI key="STATISTICS_MEAN">0.003163243231931</MDI>
+      <MDI key="STATISTICS_MEAN">0.008461735988483</MDI>
       <MDI key="STATISTICS_MINIMUM">-1</MDI>
-      <MDI key="STATISTICS_STDDEV">0.61140747762154</MDI>
-      <MDI key="STATISTICS_VALID_PERCENT">11.51</MDI>
+      <MDI key="STATISTICS_STDDEV">0.99996419887116</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">4.302</MDI>
     </Metadata>
   </PAMRasterBand>
 </PAMDataset>

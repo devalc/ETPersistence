@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StyledLayerDescriptor xmlns="http://www.opengis.net/sld" xmlns:gml="http://www.opengis.net/gml" version="1.0.0" xmlns:ogc="http://www.opengis.net/ogc" xmlns:sld="http://www.opengis.net/sld">
+<StyledLayerDescriptor xmlns="http://www.opengis.net/sld" version="1.0.0" xmlns:ogc="http://www.opengis.net/ogc" xmlns:sld="http://www.opengis.net/sld" xmlns:gml="http://www.opengis.net/gml">
   <UserLayer>
     <sld:LayerFeatureConstraints>
       <sld:FeatureTypeConstraint/>
@@ -15,9 +15,8 @@
               </sld:GrayChannel>
             </sld:ChannelSelection>
             <sld:ColorMap type="values">
-              <sld:ColorMapEntry quantity="-1" label="-1" color="#440154"/>
-              <sld:ColorMapEntry quantity="0" label="0" color="#20908d"/>
-              <sld:ColorMapEntry quantity="1" label="1" color="#fde725"/>
+              <sld:ColorMapEntry color="#440154" label="-1" quantity="-1"/>
+              <sld:ColorMapEntry color="#fde725" label="1" quantity="1"/>
             </sld:ColorMap>
           </sld:RasterSymbolizer>
         </sld:Rule>
