@@ -14,3 +14,13 @@ body {
 }
 
 h2 { color: #ffffff;}
+
+.legend {
+  position: absolute;
+  left: 0.5;
+  top: 0;
+  width: 150px;
+  height: 100px;
+  background-color: #ff751a;
+  opacity: 1;
+}

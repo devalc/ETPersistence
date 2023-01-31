@@ -3,11 +3,13 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/css/ol.css"
+  <link rel="stylesheet" href="./libs/v6.13.0-dist/ol.css"
     type="text/css">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./resources/layerswitcher/ol-layerswitcher.css">
-  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/build/ol.js"></script>
+  <link rel="stylesheet" href="./libs/layerswitcher/ol-layerswitcher.css">
+  <link rel="stylesheet" href="./libs/fontawsome/css/all.css">
+  <link rel="shortcut icon" href="./libs/images/map.png">
+
   <title>Evapotranspiration Persistence map for Magic Valley</title>
 </head>
 
@@ -16,29 +18,32 @@
   <div class="container-fluid">
     <div class="navbar-header">
 
-      <span class="navbar-brand" >
+      <span class="navbar-brand">
         <div>
-          <img src="resources/images/map.png" style="position:absolute; padding:0px;" height="35">
+          <img src="./libs/images/map.png" style="position:absolute; padding:0px;" height="35">
         </div>
         <div style="position:absolute; margin-left: 40px; padding-bottom: 20px;">
           <h2>Evapotranspiration Persistence</h2>
         </div>
         <div>
           <a href="https://www.uidaho.edu/">
-            <img src="resources/images/UI.jpg" style="position:fixed;right: 10px;top: 5px;padding-bottom:10px;"
-              height="50">
+            <img src="./libs/images/UI.jpg" style="position:fixed;right: 5px;top: 5px;padding-bottom:10px;" height="45">
           </a>
         </div>
     </div>
     </span>
   </div>
-  <div id="map" class="map"></div>
+  <div id="map" class="map">
+    <!-- <div id="legend" class="legend">
+      <img src="http://dev.wepp.cloud:1337/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=magicvalley:difference_from_field_avg_5perc" alt="">
+    </div> -->
+  </div>
   </div>
 
 
-
+  <script src="./libs/v6.13.0-dist/ol.js"></script>
+  <script src="./libs/layerswitcher/ol-layerswitcher.js"></script>
   <script src="main.js"></script>
-  <script src="./resources/layerswitcher/ol-layerswitcher.js"></script>
 </body>
 
 </html>
