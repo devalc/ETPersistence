@@ -6,9 +6,9 @@ function initMap() {
     target: 'map',
     view: new ol.View({
       center: ol.proj.fromLonLat([-114.0, 42.5]),
-      zoom: 15,
-      maxZoom: 15,
-      minZoom: 8
+      zoom: 12,
+      maxZoom: 16,
+      minZoom: 9
     })
   })
 
@@ -21,13 +21,13 @@ function initMap() {
 
   // stamen 
 
-  // var StamenTerrain = new ol.layer.Tile({
-  //   source: new ol.source.XYZ({
-  //     url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
-  //     attributions: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-  //   }),
-  //   title: 'StamenTerrain'
-  // })
+  var StamenTerrain = new ol.layer.Tile({
+    source: new ol.source.XYZ({
+      url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
+      attributions: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+    }),
+    title: 'StamenTerrain'
+  })
 
 
 
@@ -83,7 +83,7 @@ function initMap() {
   // ET persistence raster layer
 
   var persist_ras = new ol.layer.Tile({
-    title: 'persistence_new_RAT_lyr_magicValley_1986_2020_cog',
+    title: 'Evapotranspiration persistence',
     source: new ol.source.TileWMS({
 
       url: 'http://dev.wepp.cloud:1337/geoserver/magicvalley/wms',
@@ -94,18 +94,10 @@ function initMap() {
     })
   })
 
-  // var persist_ras_github = new ol.layer.Tile({
-  //   title: 'Persistence Layer straight from github',
-  //   source: new ol.source.TileWMS({
-
-  //     url: 'https://github.com/devalc/ETPersistence/blob/77390f71fbd9790b0d943f719d4b0404d7536515/data/COG/persistence_new_RAT_lyr_magicValley_1986_2020_cog.tif'
-  //   })
-  // })
-
   // difference from the field average: raster
 
   var diff_ras = new ol.layer.Tile({
-    title: 'difference_new_RAT_lyr_magicValley_1986_2020_cog',
+    title: 'Difference from field average ET',
 
     source: new ol.source.TileWMS({
 
@@ -121,12 +113,12 @@ function initMap() {
   // difference more than 5% of the field average: raster 
 
   var diff_ras_5perc = new ol.layer.Tile({
-    title: 'difference_from_field_avg_5perc',
+    title: 'Difference by at lease 5% from the field average ET',
     source: new ol.source.TileWMS({
 
       url: 'http://dev.wepp.cloud:1337/geoserver/magicvalley/wms',
       params: {
-        'layers': 'magicvalley:difference_from_field_avg_5perc'
+        'layers': 'magicvalley:difference_5percent_new_RAT_lyr_magicValley_1986_2020_cog'
       },
       serverType: 'geoserver'
     })
@@ -144,7 +136,7 @@ function initMap() {
 
   var baselayersTodisplay = new ol.layer.Group({
     title: 'Base layers',
-    layers: [osmbasemaplyr]
+    layers: [osmbasemaplyr,StamenTerrain]
   })
 
   // add everything to base map layer
@@ -162,43 +154,5 @@ function initMap() {
 
   // add Layer controls
   map.addControl(layercontrols);
-
-  // function genLegend() {
-  //   var zero_layers = ol.overlays.getLayers().get('length');
-  //   var head = document.createElement("h4");
-  //   var txt = document.createTextNode("Legend")
-  //   head.appendChild(txt);
-
-  //   var elm = document.getElementById("legend");
-  //   elm.appendChild(head);
-
-  //   var ar = [];
-  //   var i;
-  //   for (i = 0; i < zero_layers; i++) {
-  //     ar.push("http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=" + overlays.getLayers().item(i).get('title'));
-  //   }
-
-  //   for (i = 0; i < zero_layers; i++) {
-  //     var head = document.createElement("p");
-
-  //     var txt = document.createTextNode(overlays.getLayers(i).get('title'));
-
-  //     head.appendChild(txt);
-
-  //     var elm = document.getElementById("legend");
-  //     elm.appendChild(head);
-  //     var img = new Image();
-  //     img.src = ar[i];
-
-  //     var src = document.getElementById("legend");
-
-  //     src.appendChild(img);
-
-
-  //   }
-
-  // }
-
-  // genLegend();
 
 }
