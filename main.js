@@ -8,7 +8,7 @@ function initMap() {
       center: ol.proj.fromLonLat([-114.0, 42.5]),
       zoom: 12,
       maxZoom: 16,
-      minZoom: 9
+      minZoom: 6
     })
   })
 
@@ -29,7 +29,18 @@ function initMap() {
     title: 'StamenTerrain'
   })
 
-
+// react to the button click to open and close the legend
+  var btn = document.getElementsByClassName("collapse");
+          
+  btn[0].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+          content.style.display = "none";
+      } else {
+          content.style.display = "block";
+      }
+  });
 
   // vector layer- Water Districts
   // var dist = new ol.layer.Vector({

@@ -17,11 +17,47 @@ h2 { color: #ffffff;
   padding-bottom: 20px;
 }
 
-/* .legend {
-  position: absolute;
-  z-index: 10;
-  top: 80px;
+.legend {
+  position: fixed;
+  background-color: white;
+  text-indent: 2%;
+  /* background-color: rgba(0, 0, 0, .25); */
+  /* z-index: 10; */
+  bottom: 195px;
+  left: 5;
+  width: 20%;
  
-} */
+}
 
+/* Style collapsible legend */
+.collapse {
+  
+  background-color:#4a4e69; 
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  width: 20%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  position: fixed;
+bottom:600px;
+left: 5;
+}
 
+.active, .collapse:hover {
+  background-color: rgb(237, 243, 237);
+  color: black;
+}
+
+.text {
+  background-color: #3a3030;
+            display: none;
+            font-size: 15px;
+            position: fixed;
+            outline: none;
+            border: none;
+            
+
+}
